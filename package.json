@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@twa-dev/sdk": "1.0.0",
-    "@tonconnect/ui-react": "0.2.3",
+    "@tonconnect/ui-react": "0.1.7",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0"
