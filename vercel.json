@@ -1,5 +1,28 @@
 {
   "version": 2,
+  "routes": [
+    {
+      "src": "/ton-connect-manifest.json",
+      "dest": "/ton-connect-manifest.json",
+      "headers": {
+        "content-type": "application/json",
+        "access-control-allow-origin": "*",
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "src": "^/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "builds": [
     {
       "src": "package.json",
@@ -7,24 +30,6 @@
       "config": {
         "distDir": "dist"
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/ton-connect-manifest.json",
-      "headers": {
-        "content-type": "application/json",
-        "access-control-allow-origin": "*",
-        "cache-control": "no-cache, no-store, must-revalidate"
-      },
-      "continue": true
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ]
 } 

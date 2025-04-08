@@ -7,10 +7,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        manifest: resolve(__dirname, 'public/ton-connect-manifest.json')
+        main: resolve(__dirname, 'index.html')
       }
     }
   },
@@ -36,7 +36,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': '/src'
+      '@': resolve(__dirname, 'src')
     }
   },
   publicDir: 'public'
