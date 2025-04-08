@@ -12,7 +12,12 @@
   "routes": [
     {
       "src": "/ton-connect-manifest.json",
-      "dest": "/ton-connect-manifest.json"
+      "headers": {
+        "content-type": "application/json",
+        "access-control-allow-origin": "*",
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "continue": true
     },
     {
       "handle": "filesystem"
@@ -20,25 +25,6 @@
     {
       "src": "/(.*)",
       "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/ton-connect-manifest.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
     }
   ]
 } 
