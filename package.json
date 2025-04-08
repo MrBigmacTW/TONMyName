@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "type": "module",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postinstall": "chmod +x ./node_modules/.bin/vite",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
