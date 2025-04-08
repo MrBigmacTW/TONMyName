@@ -8,5 +8,37 @@
         "distDir": "dist"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/ton-connect-manifest.json",
+      "dest": "/ton-connect-manifest.json"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/ton-connect-manifest.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
   ]
 } 
