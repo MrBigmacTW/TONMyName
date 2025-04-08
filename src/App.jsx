@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { TonConnectButton, useTonConnect } from '@tonconnect/ui-react'
+import { TonConnectButton, useTonConnectUI } from '@tonconnect/ui-react'
 import TonxApiService from './services/tonxApi'
 import './App.css'
 
 const tonxApi = new TonxApiService(import.meta.env.VITE_TONX_API_TOKEN);
 
 function App() {
-  const { connected, wallet } = useTonConnect();
+  const { connected, account } = useTonConnectUI();
   const [botInfo, setBotInfo] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -29,13 +29,13 @@ function App() {
   };
 
   const sendMessageToBot = async () => {
-    if (!connected || !wallet) return;
+    if (!connected || !account) return;
 
     try {
       setLoading(true);
       await tonxApi.sendBotMessage(
         import.meta.env.VITE_BOT_CHAT_ID,
-        `新用戶連接！\n地址: ${wallet.account.address}`
+        `新用戶連接！\n地址: ${account.address}`
       );
     } catch (error) {
       console.error('Error sending message:', error);
@@ -60,7 +60,7 @@ function App() {
         ) : (
           <div className="connected-content">
             <h2>已連接的錢包</h2>
-            <p>地址：{wallet?.account.address}</p>
+            <p>地址：{account?.address}</p>
             
             <div className="bot-section">
               <h3>Bot 狀態</h3>
