@@ -10,13 +10,7 @@ console.log('Starting app...')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TonConnectUIProvider 
-      manifestUrl={manifestUrl}
-      walletsListConfiguration={{
-        includeWallets: ['tonkeeper', 'tonhub', 'openmask'],
-        walletsList: []
-      }}
-    >
+    <TonConnectUIProvider manifestUrl={manifestUrl}>
       <App />
     </TonConnectUIProvider>
   </React.StrictMode>
