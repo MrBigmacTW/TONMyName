@@ -1,9 +1,9 @@
 {
-  "url": "https://your-project.vercel.app",
+  "url": "https://ton-my-name.vercel.app",
   "name": "TON Name Service",
   "iconUrl": "https://ton.org/download/ton_symbol.png",
-  "termsOfUseUrl": "https://your-project.vercel.app/terms",
-  "privacyPolicyUrl": "https://your-project.vercel.app/privacy",
+  "termsOfUseUrl": "https://ton-my-name.vercel.app/terms",
+  "privacyPolicyUrl": "https://ton-my-name.vercel.app/privacy",
   "manifestVersion": "0.1",
   "items": [
     {
