@@ -1,9 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TonConnectButton, useTonConnect } from '@tonconnect/ui-react'
+import TonxApiService from './services/tonxApi'
 import './App.css'
+
+const tonxApi = new TonxApiService(import.meta.env.VITE_TONX_API_TOKEN);
 
 function App() {
   const { connected, wallet } = useTonConnect();
+  const [botInfo, setBotInfo] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (connected) {
+      fetchBotInfo();
+    }
+  }, [connected]);
+
+  const fetchBotInfo = async () => {
+    try {
+      setLoading(true);
+      const info = await tonxApi.getBotInfo();
+      setBotInfo(info);
+    } catch (error) {
+      console.error('Error fetching bot info:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const sendMessageToBot = async () => {
+    if (!connected || !wallet) return;
+
+    try {
+      setLoading(true);
+      await tonxApi.sendBotMessage(
+        import.meta.env.VITE_BOT_CHAT_ID,
+        `新用戶連接！\n地址: ${wallet.account.address}`
+      );
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container">
@@ -22,9 +61,25 @@ function App() {
           <div className="connected-content">
             <h2>已連接的錢包</h2>
             <p>地址：{wallet?.account.address}</p>
-            <div className="domain-info">
-              <h3>您的 TON 域名</h3>
-              <p>正在載入您的域名資訊...</p>
+            
+            <div className="bot-section">
+              <h3>Bot 狀態</h3>
+              {loading ? (
+                <p>載入中...</p>
+              ) : botInfo ? (
+                <div>
+                  <p>Bot 名稱: {botInfo.username}</p>
+                  <button 
+                    onClick={sendMessageToBot}
+                    disabled={loading}
+                    className="bot-button"
+                  >
+                    發送測試消息到 Bot
+                  </button>
+                </div>
+              ) : (
+                <p>無法載入 Bot 資訊</p>
+              )}
             </div>
           </div>
         )}
