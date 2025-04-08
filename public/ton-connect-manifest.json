@@ -1,1 +1,20 @@
- 
+{
+  "url": "https://ton-my-name.vercel.app",
+  "name": "TON Name Service",
+  "description": "A service for managing TON domains",
+  "iconUrl": "https://ton-my-name.vercel.app/ton-connect-logo.svg",
+  "termsOfUseUrl": "https://ton-my-name.vercel.app/terms",
+  "privacyPolicyUrl": "https://ton-my-name.vercel.app/privacy",
+  "manifestVersion": "0.1",
+  "appVersion": "1.0.0",
+  "features": [
+    "SendTransaction"
+  ],
+  "platforms": [
+    "web"
+  ],
+  "developer": {
+    "name": "TON Name Service Developer",
+    "contact": "https://t.me/your_contact"
+  }
+} 
