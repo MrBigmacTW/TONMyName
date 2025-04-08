@@ -1,0 +1,17 @@
+{
+  "url": "https://your-project.vercel.app",
+  "name": "TON Name Service",
+  "iconUrl": "https://ton.org/download/ton_symbol.png",
+  "termsOfUseUrl": "https://your-project.vercel.app/terms",
+  "privacyPolicyUrl": "https://your-project.vercel.app/privacy",
+  "manifestVersion": "0.1",
+  "items": [
+    {
+      "name": "ton_addr",
+      "type": "ton_addr"
+    }
+  ],
+  "capabilities": [
+    "ton_addr"
+  ]
+} 
