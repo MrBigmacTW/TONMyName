@@ -26,9 +26,15 @@
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.disconnected-content,
+.disconnected-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
 .connected-content {
   text-align: center;
 }
@@ -43,11 +49,13 @@
 h1 {
   margin: 0;
   color: #0098EA;
+  font-size: 24px;
 }
 
 h2 {
   color: #333;
   margin-bottom: 15px;
+  font-size: 20px;
 }
 
 h3 {
@@ -57,6 +65,7 @@ h3 {
 p {
   color: #666;
   line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -93,4 +102,11 @@ p {
 .bot-button:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+/* TonConnect 按鈕樣式覆蓋 */
+:root {
+  --tc-button-text-color: white;
+  --tc-button-background: #0098EA;
+  --tc-button-background-hover: #007bc1;
 } 

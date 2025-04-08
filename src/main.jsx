@@ -4,7 +4,8 @@ import { TonConnectUIProvider } from '@tonconnect/ui-react'
 import App from './App'
 import './index.css'
 
-const manifestUrl = 'https://ton-my-name.vercel.app/tonconnect-manifest.json'
+// 這裡使用您的 manifest URL
+const manifestUrl = 'https://ton-my-name.vercel.app/ton-connect-manifest.json'
 
 console.log('Starting app...')
 
