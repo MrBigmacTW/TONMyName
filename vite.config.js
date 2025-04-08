@@ -23,7 +23,8 @@ export default defineConfig({
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': '*',
       'Access-Control-Allow-Credentials': 'true',
-      'Content-Type': 'application/json'
+      'Content-Security-Policy': "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https: wss: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data: blob:; frame-src 'self' https: ton: tonhub:",
+      'X-Content-Type-Options': 'nosniff'
     },
     proxy: {
       '/manifest': {
